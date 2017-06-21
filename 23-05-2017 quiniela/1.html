@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script>
+		lista1 = ["gato","perro","borrego","elefante", "girafa"] // Array con mi listado
+		lista2 = ["gato","perro","cerdo","gallo", "girafa"] // Array 2 con mi listado
+ 
+		/* Uso un bucle para evaluar los dos arrays pues ambos tendrán la misma longitud
+		for (i=0; i < lista1.length ; i++){
+			if(lista1[i].includes(lista2[i]) && lista1[i]==lista2[i]){
+				document.write(lista1[i] + " (acierto), " + " ");
+				
+			}else{
+				document.write(lista1[i] + " (error), " + " ");
+			}
+		}*/
+		var positivo=0;
+		var negativo=0;
+
+	</script>
+</head>
+<body>
+
+	<h1>Resultados</h1>
+
+		<script>
+
+		document.write("Tus pronosticos han sido ( " + lista2 + " ) <br> Y los resultados fueron: ( " + lista1 + " ) <br>");
+
+
+
+		// Uso un bucle para evaluar los dos arrays pues ambos tendrán la misma longitud
+		for (i=0; i<lista1.length ; i++){
+			if(lista1[i].includes(lista2[i]) && lista1[i]==lista2[i]){
+				document.write(lista1[i] + " (acierto), " + " ");
+				positivo++
+				
+			}else{
+				document.write(lista1[i] + " (error), " + " ");
+				negativo++
+			}
+		}
+
+		</script>
+</body>
+</html>

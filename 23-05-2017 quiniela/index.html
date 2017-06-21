@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+		body{
+			font-family: 'Roboto Slab', serif;
+			padding: 0;
+			margin: 0;
+			text-align: center;
+			background-image: url("img/fondo.jpg");
+			min-width: 60%;
+		}
+		#boto:focus{outline: none;}
+		div{
+			display: inline-block;
+			margin: 20px;
+			padding: 10px;
+			border-radius: 4px;
+			box-shadow: 3px 3px 3px 3px;
+			font-weight: bold;
+			background-color: white;
+			animation-name: divs;
+			animation-duration: 4s;
+			width: 30%;
+		}
+
+		@keyframes divs{
+			from {opacity: 0;}
+    		to {opacity: 1;}
+		}
+
+		button{
+			padding: 15px;
+			border-radius: 5px;
+			box-shadow: 1px 1px 1px 1px;
+			font-weight: bold;
+			cursor: pointer;
+			margin-top: 40px;
+			animation-name: button;
+			animation-duration: 4s;
+			font-family: 'Roboto Slab', serif;
+			margin-bottom: 40px;
+		}
+
+		@keyframes button{
+			from {opacity: 0;}
+    		to {opacity: 1;}
+		}
+
+		#premios{
+			font-size: 30px;
+		}
+
+		h1{
+			font-size: 50px;
+			background-color: black;
+			opacity: 0.9;
+			color: white;
+			margin: 0;
+		}
+
+		a{
+			text-decoration: none;
+			color: white;
+		}
+
+		#imgu{
+			width: 10%;
+			float:left;
+		}
+		#imgd{
+			width: 10%;
+			float:right;
+		}
+
+		p{
+			margin: 0;
+		}
+
+		#premios{
+			margin-bottom: 30px;
+			color: white;
+		}
+
+	</style>
+	<script type="text/javascript">
+		var resultados=["X", "1", "X", "1", "2", "1", "2", "X", "1", "X", "1", "X", "X", "2", "1"]
+		var partidos=[]
+		var nombre=["primero", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince"]
+		var color=["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "m", "s", "d", "f", "g"]
+		var positivo=0;
+		var negativo=0;
+
+		function comprobacion(){
+			for(i=0; i<resultados.length; i++){
+				if (document.getElementsByName(nombre[i])[0].checked==true) {
+					partidos.push(document.getElementsByName(nombre[i])[0].value)
+				}else{
+					if (document.getElementsByName(nombre[i])[1].checked==true) {
+						partidos.push(document.getElementsByName(nombre[i])[1].value)
+					}else{
+						if (document.getElementsByName(nombre[i])[2].checked==true) {
+							partidos.push(document.getElementsByName(nombre[i])[2].value)
+						}else{
+							
+						}
+						
+					}
+				}
+			}
+
+		// Uso un bucle para evaluar los dos arrays pues ambos tendrán la misma longitud
+
+
+			for (i=0; i<resultados.length ; i++){
+				if(resultados[i].includes(partidos[i]) && resultados[i]==partidos[i]){
+					document.getElementById(nombre[i]).style.backgroundColor="#CCDB4A";
+					positivo=positivo+1
+					
+				}else{
+					document.getElementById(nombre[i]).style.backgroundColor="#E94B30";
+					negativo=negativo+1
+				}
+			}
+
+			if (positivo==10) {
+				document.getElementById("premios").innerHTML="Tu premio es de 7,05€"
+			}else if(positivo==11){
+				document.getElementById("premios").innerHTML="Tu premio es de 29,78€"
+			}else if (positivo==12) {
+				document.getElementById("premios").innerHTML="Tu premio es de 216,99€"
+			}else if (positivo==13) {
+				document.getElementById("premios").innerHTML="Tu premio es de 2.672,45€"
+			}else if (positivo==14) {
+				document.getElementById("premios").innerHTML="Tu premio es de 108.323,36€"
+			}else if (positivo==15) {
+				document.getElementById("premios").innerHTML="Tu premio es de 304.875.682,01€"
+			}else{
+				document.getElementById("premios").innerHTML="No te corresponde ningún premio."
+			}
+		}
+
+	</script>
+	<title>js</title>
+</head>
+<body>
+
+<h1><a href="http://resultados.as.com/quiniela/">La Quiniela</a></h1>
+<form>
+	<div id="primero">
+		<img src="img/1.png" alt="" id="imgu">
+		<img src="img/2.png" alt="" id="imgd">
+		<p>Leganés - Alavés</p>
+		<input type="radio" required name="primero" id="a" value="1">1
+		<input type="radio" required name="primero" id="b" value="X">X
+		<input type="radio" required name="primero" id="c" value="2">2
+	</div>
+
+	<div id="dos">
+		<img src="img/3.png" alt="" id="imgu">
+		<img src="img/4.png" alt="" id="imgd">
+		<p>At.Madrid - Atheltic Club</p>
+		<input type="radio" required name="dos" id="dos" value="1">1
+		<input type="radio" required name="dos" id="dos" value="X">X
+		<input type="radio" required name="dos" id="dos" value="2">2
+	</div>
+
+	<div id="tres">
+		<img src="img/5.png" alt="" id="imgu">
+		<img src="img/6.png" alt="" id="imgd">
+		<p>Sporting - Betis</p>
+		<input type="radio" required name="tres" id="tres" value="1">1
+		<input type="radio" required name="tres" id="tres" value="X">X
+		<input type="radio" required name="tres" id="tres" value="2">2
+	</div>
+
+	<div id="cuatro">
+		<img src="img/7.png" alt="" id="imgu">
+		<img src="img/8.png" alt="" id="imgd">
+		<p>Deportivo - Las Palmas</p>
+		<input type="radio" required name="cuatro" id="cuatro" value="1">1
+		<input type="radio" required name="cuatro" id="cuatro" value="X">X
+		<input type="radio" required name="cuatro" id="cuatro" value="2">2
+	</div>
+
+	<div id="cinco">
+		<img src="img/9.png" alt="" id="imgu">
+		<img src="img/10.png" alt="" id="imgd">
+		<p>Valencia - Villareal</p>
+		<input type="radio" required name="cinco" id="cinco" value="1">1
+		<input type="radio" required name="cinco" id="cinco" value="X">X
+		<input type="radio" required name="cinco" id="cinco" value="2">2
+	</div>
+
+	<div id="seis">
+		<img src="img/11.png" alt="" id="imgu">
+		<img src="img/12.png" alt="" id="imgd">
+		<p>Sevilla - Osasuna</p>
+		<input type="radio" required name="seis" id="seis" value="1">1
+		<input type="radio" required name="seis" id="seis" value="X">X
+		<input type="radio" required name="seis" id="seis" value="2">2
+	</div>
+
+	<div id="siete">
+		<img src="img/13.png" alt="" id="imgu">
+		<img src="img/14.png" alt="" id="imgd">
+		<p>Málaga - Real Madrid</p>
+		<input type="radio" required name="siete" id="siete" value="1">1
+		<input type="radio" required name="siete" id="siete" value="X">X
+		<input type="radio" required name="siete" id="siete" value="2">2
+	</div>
+
+	<div id="ocho">
+		<img src="img/15.png" alt="" id="imgu">
+		<img src="img/16.png" alt="" id="imgd">
+		<p>Celta - Real Sociedad</p>
+		<input type="radio" required name="ocho" id="ocho" value="1">1
+		<input type="radio" required name="ocho" id="ocho" value="X">X
+		<input type="radio" required name="ocho" id="ocho" value="2">2
+	</div>
+
+	<div id="nueve">
+		<img src="img/17.png" alt="" id="imgu">
+		<img src="img/18.png" alt="" id="imgd">
+		<p>Mallorca - Almería</p>
+		<input type="radio" required name="nueve" id="nueve" value="1">1
+		<input type="radio" required name="nueve" id="nueve" value="X">X
+		<input type="radio" required name="nueve" id="nueve" value="2">2
+	</div>
+
+	<div id="diez">
+		<img src="img/19.png" alt="" id="imgu">
+		<img src="img/20.png" alt="" id="imgd">
+		<p>Girona - Alcorcón</p>
+		<input type="radio" required name="diez" id="diez" value="1">1
+		<input type="radio" required name="diez" id="diez" value="X">X
+		<input type="radio" required name="diez" id="diez" value="2">2
+	</div>
+
+	<div id="once">
+		<img src="img/21.png" alt="" id="imgu">
+		<img src="img/22.png" alt="" id="imgd">
+		<p>Murcia - Huesca</p>
+		<input type="radio" required name="once" id="once" value="1">1
+		<input type="radio" required name="once" id="once" value="X">X
+		<input type="radio" required name="once" id="once" value="2">2
+	</div>
+
+	<div id="doce">
+		<img src="img/23.png" alt="" id="imgu">
+		<img src="img/24.png" alt="" id="imgd">
+		<p>Cádiz - Córdoba</p>
+		<input type="radio" required name="doce" id="doce" value="1">1
+		<input type="radio" required name="doce" id="doce" value="X">X
+		<input type="radio" required name="doce" id="doce" value="2">2
+	</div>
+
+	<div id="trece">
+		<img src="img/25.png" alt="" id="imgu">
+		<img src="img/26.png" alt="" id="imgd">
+		<p>R.Oviedo - Zaragoza</p>
+		<input type="radio" required name="trece" id="trece" value="1">1
+		<input type="radio" required name="trece" id="trece" value="X">X
+		<input type="radio" required name="trece" id="trece" value="2">2
+	</div>
+
+	<div id="catorce">
+		<img src="img/27.png" alt="" id="imgu">
+		<img src="img/28.png" alt="" id="imgd">
+		<p>Numancia - Lugo</p>
+		<input type="radio" required name="catorce" id="catorce" value="1">1
+		<input type="radio" required name="catorce" id="catorce" value="X">X
+		<input type="radio" required name="catorce" id="catorce" value="2">2
+	</div>
+
+	<div id="quince">
+		<img src="img/29.png" alt="" id="imgu">
+		<img src="img/30.png" alt="" id="imgd">
+		<p>Barcelona - Eibar</p>
+		<input type="radio" required name="quince" id="quince" value="1">1
+		<input type="radio" required name="quince" id="quince" value="X">X
+		<input type="radio" required name="quince" id="quince" value="2">2
+	</div><br>
+	<button onclick="comprobacion()" id="boto">Resultado</button> 
+</form>
+	<p id="final"></p>
+	<p id="finaldos"></p>
+	<p id="premios"></p>
+
+</body>
+</html>
